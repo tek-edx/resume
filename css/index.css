@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius:10px;
+  
+  
+}
+
+body {
+  text-align: justify;
+  font-size: 1.2rem;
+  background-position: center;
+  object-fit: cover;
+}
+
+.main-container {
+  display: grid;
+  max-width: 100vw;
+
+  margin: 0 auto;
+
+
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-areas:
+    "h h h h"
+    "i i i i"
+    "s s s s"
+    "d d d d"
+    "n n n n"
+    "f f f f";
+}
+
+header {
+  background-color: rgba(72, 86, 74, 0.8);
+  grid-area: h;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* CSS for the burger box*/
+.burger-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border: 3px solid white;
+   margin-top:0.2em;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+/* CSS for the burger box menu */
+
+.burger-box .burger-menu {
+  width: 25px;
+  height: 5px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+ 
+}
+
+/* Adding befor and after element for the burger menu to show 3 lines */
+
+.burger-menu::before,
+.burger-menu::after {
+  content: " ";
+  position: absolute;
+  width: 25px;
+  height: 5px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.2s ease-in;
+}
+
+/* Setting the burger before and after  menu positions */
+
+.burger-menu::before {
+  transform: translateY(-10px);
+}
+
+.burger-menu::after {
+  transform: translateY(10px);
+}
+
+/* Adding animation to the  burger menu */
+
+.burger-box.open .burger-menu {
+  transform: translateX(-50px);
+  background: transparent;
+}
+
+.burger-box.open .burger-menu::before {
+  transform: rotate(45deg);
+  margin-left: 50px;
+}
+
+.burger-box.open .burger-menu::after {
+  transform: rotate(-45deg);
+  margin-left: 50px;
+}
+
+/*  Modifying nav menu for zoom in effect */
+nav {
+  grid-area: n;
+  position: absolute;
+  top: 10vh;
+  width: 100%;
+  height: 100vh;
+  background-color: sandybrown!important;
+  border-bottom: 4px solid gray;
+  justify-content: space-between;
+  opacity: 0.95;
+  
+  z-index: 4;
+  animation: burgerZoom 1s  ;
+
+}
+
+/* Modifying nav for center apperence of menu */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+nav ul {
+  flex-direction: column;
+}
+
+.personal-info {
+  grid-area: i;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 20px 30px 2px gray;
+  max-height: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.info {
+  text-align: center;
+  align-self: center;
+  align-items: self-start;
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+thead td {
+  border-bottom: 1px solid black;
+}
+
+img {
+  max-width: 100%;
+
+  display: block;
+  height: auto;
+  margin-bottom: 1em;
+  object-fit: cover;
+  object-position: center;
+}
+
+.summary {
+  grid-area: s;
+  background-color: #87ceeb;
+  width: 100%;
+  box-shadow: 10px 20px 30px 2px gray;
+  padding: 3em;
+}
+
+.detail {
+  grid-area: d;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+}
+
+section {
+  margin: 1em auto;
+}
+footer {
+  grid-area: f;
+  display: flex;
+  padding: 1em;
+
+  height: 1em;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: black;
+}
+
+.logo{
+    margin: 1em;
+    
+}
+
+.logo > a:hover {
+  color: rgba(248, 87, 87, 0.849);
+  
+  box-shadow: none;
+  
+}
+
+li {
+  list-style-type: none;
+  margin: 0.5em;
+  font-size: 1.5em;
+  
+}
+
+td {
+  text-align: center;
+  width: 100vw;
+  line-height: 2rem;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+a {
+  transition: 0.5s;
+  color: rgba(72, 86, 74, 0.8);
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+a:hover,
+a:focus {
+  color: skyblue;
+  box-shadow: 2px 0px 3px 3px;
+}
+
+ul > li:hover {
+  transform: scale(1.1);
+}
+
+
+.summary p{
+  text-align: justify;
+}
+@keyframes burgerZoom{
+    0%{ width:0 ; height:0; 
+       
+        
+        overflow: hidden;
+        
+    }
+
+}
+
+@media (min-width: 850px) {
+  .main-container {
+    max-width: 70vw;
+    min-width: 805px;
+    height: auto;
+
+    margin: 0 auto;
+    grid-gap: 2em;
+
+    grid-template-areas:
+      "h h h h"
+      "i n n n"
+      "i d d d"
+      "s d d d"
+      "s d d d"
+      "f f f f";
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .current-page a {
+    color: rgb(146, 137, 137, 0.5);
+  }
+
+  .logo {
+    max-width: 100px;
+    max-width: 100px;
+    justify-items: center;
+  }
+
+  ul {
+    color: black;
+  }
+
+  #nav-menu {
+    grid-area: n;
+    position: sticky;
+    height: auto;
+    top: 0px;
+    background-color: salmon;
+    border-bottom: 4px solid gray;
+    justify-content: space-between;
+    z-index: 0;
+
+    display: initial !important;
+    overflow-y: visible !important;
+  }
+
+  #nav-menu ul {
+    flex-direction: row;
+  }
+
+  .burger-box {
+    display: none;
+  }
+} ;
